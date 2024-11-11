@@ -24,19 +24,18 @@ Given a roman numeral, convert it to an integer.
  var romanToInt = function(s) {
     //create an object to map Roman numerals to integers
     //then create code for rules of addition and subtraction
-    //Fix to first draft: I have to account for two Roman numerals
-    //being a pair in the middle of the string
+
     let output = 0
     const RomanToInteger = {"I":1, "V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
-    for(let i = 0; i < s.length; i++){
-        if(i === 0 && s[i + 1] < s[i] ){
-            output += RomanToInteger[s[i]]
-        }
-        else if(s[i] < s[i + 1]){
-            output += (RomanToInteger[s[i + 1]] - RomanToInteger[s[i]])
+    for(let i = 0; i < s.length - 1; i++){
+        let a = RomanToInteger[s[i]]
+        let b = RomanToInteger[s[i + 1]]
+        if(a < b){
+            output -= a
         }else{
-            output += RomanToInteger[s[i]]
+            output += a
         }
     }
+    output += RomanToInteger[s[s.length - 1]]
     return output
 };
