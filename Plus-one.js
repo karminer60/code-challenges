@@ -9,6 +9,8 @@ var plusOne = function(digits) {
     //access all digits in the array to create the integer
     //add one to the integer
     //place the result back into the array and split it up into digits
+    //large integers and floats will be rounded
+    //I need to carry the number being added
     let number = ''
     let newNumber = 0
     for(let digit in digits){
