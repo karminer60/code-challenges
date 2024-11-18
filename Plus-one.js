@@ -6,19 +6,17 @@ Increment the large integer by one and return the resulting array of digits.
  * @return {number[]}
  */
 var plusOne = function(digits) {
-    //access all digits in the array to create the integer
-    //add one to the integer
-    //place the result back into the array and split it up into digits
     //large integers and floats will be rounded
     //I need to carry the number being added
-    let number = ''
-    let newNumber = 0
-    for(let digit in digits){
-        number += digit
-        newNumber = Number(number)
-    }
-    newNumber += 1
-    let newArray = newNumber.toString().split('')
-    let newNumbers = newArray.map((str) => parseInt(str))
-    return newNumbers 
+    for(let i; true; i++){
+        for(let digit in digits){
+            if(digit === 9){
+                digit[i - 1] += 1
+                digit[i] = 0
+            }else{
+                digit[digits.length - 1] += 1
+            }
+        }
+    }    
+    return digits
 };
