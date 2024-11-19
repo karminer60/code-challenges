@@ -9,27 +9,22 @@ var plusOne = function(digits) {
     //large integers and floats will be rounded
     //I need to carry the number being added
     let newDigits = digits.reverse()
-    let carry = 0
+    let carry = 1
     let result = []
     for(let digit of newDigits){
-        //do this at the end and apply it more generally
         digit += carry
-        if(digit === 9 && newDigits.length === 1){
-            digit = 0
-            result.unshift(1, digit)
-        }
-        else if(digit === 9){
-            carry = 0
-            result.unshift(0)
+        if(digit > 9){
             carry = 1
-        }else if(carry === 1 && digit === 9){
-            carry = 0
-            result.unshift(0)
-            carry += 1
+            digit = 0
         }else{
-            result.unshift(digit + carry)  
+            carry = 0
         }
+        result.unshift(digit)
     }
+    //do this at the end and apply it more generally
+    if(carry){
+        result.unshift(carry)
+    } 
    
     return result
 };
