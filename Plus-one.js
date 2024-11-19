@@ -12,19 +12,22 @@ var plusOne = function(digits) {
     let carry = 0
     let result = []
     for(let digit of newDigits){
-        if(digit === 9){
-           carry += 1
-           digit = 0
-           result.unshift(digit)
-        }else if(carry === 1 && digit === 9){
-            digit += 1
-            digit += 0
-            carry += 1
-            result.unshift(digit)
+        //do this at the end and apply it more generally
+        digit += carry
+        if(digit === 9 && newDigits.length === 1){
+            digit = 0
+            result.unshift(1, digit)
         }
-        else{
-            digit += 1
-            result.unshift(digit)  
+        else if(digit === 9){
+            carry = 0
+            result.unshift(0)
+            carry = 1
+        }else if(carry === 1 && digit === 9){
+            carry = 0
+            result.unshift(0)
+            carry += 1
+        }else{
+            result.unshift(digit + carry)  
         }
     }
    
