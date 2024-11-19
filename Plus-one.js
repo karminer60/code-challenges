@@ -8,15 +8,25 @@ Increment the large integer by one and return the resulting array of digits.
 var plusOne = function(digits) {
     //large integers and floats will be rounded
     //I need to carry the number being added
-    for(let i; true; i++){
-        for(let digit in digits){
-            if(digit === 9){
-                digit[i - 1] += 1
-                digit[i] = 0
-            }else{
-                digit[digits.length - 1] += 1
-            }
+    let newDigits = digits.reverse()
+    let carry = 0
+    let result = []
+    for(let digit of newDigits){
+        if(digit === 9){
+           carry += 1
+           digit = 0
+           result.unshift(digit)
+        }else if(carry === 1 && digit === 9){
+            digit += 1
+            digit += 0
+            carry += 1
+            result.unshift(digit)
         }
-    }    
-    return digits
+        else{
+            digit += 1
+            result.unshift(digit)  
+        }
+    }
+   
+    return result
 };
