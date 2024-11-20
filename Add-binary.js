@@ -11,4 +11,4 @@ var addBinary = function(a, b) {
     //the smallest number is on the right
     //and the largest number is on the left
     //the solution will be like the Plus One problem    
-};
+}
