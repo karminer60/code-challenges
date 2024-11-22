@@ -18,12 +18,15 @@ var addBinary = function(a, b) {
         //go from the end then move backwards by subtracting i
         //one binary plus one binary equals 10 
         let digit = Number(a[a.length - 1 - i] || "0") + Number(b[b.length - 1 -i] || "0") + carry
-        if(digit > 1){
-            carry = 1
-            digit = 0
-        }else{
-            carry = 0
-        }
+        //this code instead of if statements below
+        carry = Math.floor(digit / 2)
+        digit = digit % 2
+        // if(digit > 1){
+        //     carry = 1
+        //     digit = 0
+        // }else{
+        //     carry = 0
+        // }
         result += digit
     }
     //do this at the end and apply it more generally
