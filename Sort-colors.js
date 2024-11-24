@@ -8,7 +8,15 @@ You must solve this problem without using the library's sort function.
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
-//Will use bubble sort solution
 var sortColors = function(nums) {
-    
-};
+    //will use bubble sort solution
+    //create two for loops: one that goes through nums array
+    //one that moves backward from the end of the array
+    for(let i = 0; i < nums.length; i++){
+    //     for(){
+            
+    //     }
+    // }  
+ 
+    }
+}
