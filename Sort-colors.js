@@ -12,11 +12,15 @@ var sortColors = function(nums) {
     //will use bubble sort solution
     //create two for loops: one that goes through nums array
     //one that moves backward from the end of the array
+    let tempNum;
     for(let i = 0; i < nums.length; i++){
-    //     for(){
-            
-    //     }
-    // }  
- 
-    }
-}
+        for(let j = 0; j < nums.length - 1 - i; j++){
+            if(nums[j] > nums[ j + 1 ]){
+                tempNum = nums[j]
+                nums[j] = nums[ j + 1 ]
+                nums[ j + 1 ] = tempNum
+            }
+        }
+    }  
+    return nums
+};
